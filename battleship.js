@@ -68,5 +68,22 @@ var gameBoard = [
 function fireTorpedo() {
 
 	// Your game logic will go here!
+	var userInput = $("#inputBox").val();
+	var rowLetter = userInput.substring(0,1);
+  var row = letterConversion[rowLetter];
+  var column = userInput.substring(1,2);
+
+	var battleship = gameBoard[row][column - 1];
+
+	if(battleship == 1) {
+		$("text").css("background-color", "red")
+	}
+	else {
+		backgroundcolor = grey;
+	}
+
+
+
+
 
 }
