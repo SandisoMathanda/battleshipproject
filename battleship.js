@@ -72,22 +72,28 @@ function fireTorpedo() {
 	var userInput = $("#inputBox").val();
 	var rowLetter = userInput.substring(0,1);
   var row = letterConversion[rowLetter];
-  var column = userInput.substring(1,2) - 1;
+  var column = userInput.substring(1,3) - 1;
 
 	var battleship = gameBoard[row][column];
-	var squareString = "#s" + row + column;
+	var squareString = "#s" + row + column ;
+	console.log(row)
+	console.log(column)
+
 
 	if(battleship == 1) {
 		$(squareString).css("background-color", "red")
 		hitCount += 1;
-
 	}
 	else {
 		$(squareString).css("background-color", "grey");
 	}
  if (hitCount == 17) {
-		$("#instructions").text("CONGRATULATIONS YOU'VE SUNK ALL MY BATTLESHIP!!!" );
+	//	$("#instructions").text("CONGRATULATIONS YOU'VE SUNK ALL MY BATTLESHIP!!!" );
+		var overlay = $("<div id='overlay'> Game Over </div>");
+		overlay.appendTo(document.body);
+
 	}
+
 
 
 
